@@ -105,6 +105,7 @@ final class NativeHttpClient implements HttpClientInterface, LoggerAwareInterfac
         if (\extension_loaded('zlib') && !isset($options['normalized_headers']['accept-encoding'])) {
             // gzip is the most widely available algo, no need to deal with deflate
             $options['headers'][] = 'Accept-Encoding: gzip';
+            $options['normalized_headers']['accept-encoding'] = ['gzip'];
         }
 
         if ($options['peer_fingerprint']) {

@@ -211,6 +211,7 @@ final class CurlHttpClient implements HttpClientInterface, LoggerAwareInterface,
 
         if (\extension_loaded('zlib') && !isset($options['normalized_headers']['accept-encoding'])) {
             $options['headers'][] = 'Accept-Encoding: gzip'; // Expose only one encoding, some servers mess up when more are provided
+            $options['normalized_headers']['accept-encoding'] = ['gzip'];
         }
         $body = $options['body'];
 
